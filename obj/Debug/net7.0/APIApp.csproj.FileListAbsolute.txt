@@ -136,3 +136,4 @@ D:\GIT\CSHARP_API\obj\Debug\net7.0\refint\APIApp.dll
 D:\GIT\CSHARP_API\obj\Debug\net7.0\APIApp.pdb
 D:\GIT\CSHARP_API\obj\Debug\net7.0\APIApp.genruntimeconfig.cache
 D:\GIT\CSHARP_API\obj\Debug\net7.0\ref\APIApp.dll
+D:\GIT\CSHARP_API\bin\Debug\net7.0\APIApp.staticwebassets.runtime.json

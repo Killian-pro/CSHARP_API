@@ -24,12 +24,13 @@ public class GamesController : ControllerBase
 
 
     [HttpPost]
-    public async Task<ActionResult<List<Game>>> CreateEntity(Game c)
+    public async Task<ActionResult<List<Game>>> CreateEntity(Game game)
     {
 
-        await _context.Game.AddAsync(c);
+        await _context.Game.AddAsync(game);
         await _context.SaveChangesAsync();
-        return Ok(c);
+
+        return Ok(game);
     }
 
     [HttpPut("{id}")]
@@ -45,6 +46,27 @@ public class GamesController : ControllerBase
         // Mise à jour des propriétés
         game.BoardState = updatedGame.BoardState;
         game.IdPlayerWin = updatedGame.IdPlayerWin;
+
+        if (game.IdPlayerWin != 0)
+        {
+            Player player = await _context.Player.FindAsync(game.IdPlayerWin);
+            if (player != null)
+            {
+                Score score = await _context.Scores.FirstOrDefaultAsync(s => s.Player == game.IdPlayerWin);
+                if (score == null)
+                {
+                    score = new Score { Player = game.IdPlayerWin, ScoreNumber = 1, PlayerName = player.Name };
+                    _context.Scores.Add(score);
+                }
+                else
+                {
+                    score.ScoreNumber++;
+                    _context.Scores.Update(score);
+                }
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
         // Enregistrement des modifications dans la base de données
         await _context.SaveChangesAsync();

@@ -4,10 +4,28 @@ let boardState = "---------"; // Initial board state
 let gameId; // Variable globale pour stocker l'ID du jeu
 let player1id = 0;
 let player2id = 0;
+let player1name = "";
+let player2name = "";
+
+function updatePlayerTurn(playerName) {
+  const playerTurnElement = document.querySelector(".playerTurn");
+  playerTurnElement.innerHTML = ""; // Effacer le contenu précédent
+
+  const playerNameElement = document.createElement("strong");
+  playerNameElement.style.fontSize = "24px";
+
+  if (playerName === player1name) {
+    playerNameElement.textContent = `Au tour de : ${player1name}`;
+  } else {
+    playerNameElement.textContent = `Au tour de : ${player2name}`;
+  }
+
+  playerTurnElement.appendChild(playerNameElement);
+}
 
 function startGame() {
-  const player1name = document.getElementById("player1name").value;
-  const player2name = document.getElementById("player2name").value;
+  player1name = document.getElementById("player1name").value;
+  player2name = document.getElementById("player2name").value;
 
   if (player1name.trim() === "" || player2name.trim() === "") {
     alert("Veuillez renseigner les noms des joueurs.");
@@ -73,6 +91,15 @@ function startGame() {
     .catch((error) => {
       console.log("False", error);
     });
+  const playerTurnElement = document.querySelector(".playerTurn");
+  playerTurnElement.innerHTML = ""; // Effacer le contenu précédent
+
+  const playerNameElement = document.createElement("strong");
+  playerNameElement.style.fontSize = "24px";
+  playerNameElement.textContent = `${
+    currentPlayer === "X" ? player1name : player2name
+  } tu commences`;
+  playerTurnElement.appendChild(playerNameElement);
 }
 
 function makeMove(cellIndex) {
@@ -87,13 +114,19 @@ function makeMove(cellIndex) {
       boardState.substring(cellIndex + 1);
 
     if (checkWin()) {
-      alert(`Player ${currentPlayer} wins!`);
-      updateBoardState(boardState, currentPlayer === "X" ? 1 : 2); // Appel de la fonction updateBoardState
+      alert(
+        `Player ${currentPlayer === "X" ? player1name : player2name} wins!`
+      );
+      updateBoardState(
+        boardState,
+        currentPlayer === "X" ? player1id : player2id
+      ); // Appel de la fonction updateBoardState
       resetBoard();
       return;
     }
-
     currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+    updatePlayerTurn(currentPlayer === "X" ? player1name : player2name);
   }
 
   if (boardState.indexOf("-") === -1) {
@@ -131,6 +164,7 @@ function checkWin() {
 
 function resetBoard() {
   startGame();
+  ShowScore();
   cells.forEach((cell) => {
     cell.innerHTML = "";
     cell.classList.remove("X", "O");
@@ -169,18 +203,20 @@ function updatePlayersList(players) {
 
   // Parcourir la liste des joueurs et créer les éléments <li> pour chaque joueur
   players.forEach((player) => {
-    const playerLi = document.createElement("li");
-    playerLi.textContent = player.name;
-    playersUl.appendChild(playerLi);
+    if (player.playerName) {
+      const playerLi = document.createElement("li");
+      playerLi.textContent =
+        player.playerName + " => SCORE : " + player.scoreNumber;
+      playersUl.appendChild(playerLi);
+    }
   });
 
   // Afficher la section des joueurs
   document.getElementById("playersList").style.display = "block";
 }
 
-// Appeler les fonctions pour récupérer les jeux et les joueurs lors du chargement de la page
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:5256/api/Players", {
+function ShowScore() {
+  fetch("http://localhost:5256/api/Scores", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -194,4 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.log("Erreur lors de la récupération des joueurs :", error);
     });
+}
+// Appeler les fonctions pour récupérer les jeux et les joueurs lors du chargement de la page
+document.addEventListener("DOMContentLoaded", () => {
+  ShowScore();
 });

@@ -7,7 +7,7 @@ namespace APIApp
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
     }
 
 
@@ -17,7 +17,7 @@ namespace APIApp
         public int Id { get; set; }
         public int Player1id { get; set; }
         public int Player2id { get; set; }
-        public string BoardState { get; set; }
+        public required string BoardState { get; set; }
         public int IdPlayerWin { get; set; }
     }
 
@@ -26,6 +26,7 @@ namespace APIApp
         [Key]
         public int Id { get; set; }
         public int Player { get; set; }
+        public required string PlayerName { get; set; }
         public int ScoreNumber { get; set; }
 
     }

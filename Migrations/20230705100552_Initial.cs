@@ -5,7 +5,7 @@
 namespace APIApp.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace APIApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PrimaryKey_Products", x => x.Id);
+                    table.PrimaryKey("PrimaryKey_Game", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -36,8 +36,28 @@ namespace APIApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PrimaryKey_Categories", x => x.Id);
+                    table.PrimaryKey("PrimaryKey_Player", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Scores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Player = table.Column<int>(type: "INTEGER", nullable: false),
+                    ScoreNumber = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PrimaryKey_Score", x => x.Id);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Player_Name",
+                table: "Player",
+                column: "Name",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -48,6 +68,9 @@ namespace APIApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Player");
+
+            migrationBuilder.DropTable(
+                name: "Scores");
         }
     }
 }

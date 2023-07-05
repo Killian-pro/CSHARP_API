@@ -10,8 +10,8 @@ using MyApi.Context;
 namespace APIApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230704145313_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230705100552_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace APIApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id")
-                        .HasName("PrimaryKey_Products");
+                        .HasName("PrimaryKey_Game");
 
                     b.ToTable("Game");
                 });
@@ -55,9 +55,30 @@ namespace APIApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id")
-                        .HasName("PrimaryKey_Categories");
+                        .HasName("PrimaryKey_Player");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Player");
+                });
+
+            modelBuilder.Entity("APIApp.Score", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Player")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ScoreNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id")
+                        .HasName("PrimaryKey_Score");
+
+                    b.ToTable("Scores");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\GIT\\CSHARP_API\\wwwroot\\main.html",
+      "PackagePath": "staticwebassets\\main.html"
+    },
+    {
+      "Id": "D:\\GIT\\CSHARP_API\\wwwroot\\script.js",
+      "PackagePath": "staticwebassets\\script.js"
+    },
+    {
+      "Id": "D:\\GIT\\CSHARP_API\\wwwroot\\styles.css",
+      "PackagePath": "staticwebassets\\styles.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.APIApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.APIApp.props",
+      "PackagePath": "build\\APIApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.APIApp.props",
+      "PackagePath": "buildMultiTargeting\\APIApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.APIApp.props",
+      "PackagePath": "buildTransitive\\APIApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

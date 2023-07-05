@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyApi.Context;
 
 namespace APIApp.Controllers;
@@ -26,6 +27,11 @@ public class PlayersController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<List<Player>>> CreateEntity(Player p)
     {
+        var existingPlayer = await _context.Player.FirstOrDefaultAsync(player => player.Name == p.Name);
+        if (existingPlayer != null)
+        {
+            return Ok(new { id = existingPlayer.Id, name = existingPlayer.Name });
+        }
 
         await _context.Player.AddAsync(p);
         await _context.SaveChangesAsync();

@@ -1,11 +1,71 @@
 {
   "Version": 1,
-  "Hash": "jYqNMLxsZBjQSdCgDp7VfaR5tdCMJBzo3NQFQJx6dSo=",
+  "Hash": "jkFgbKhPVYc47qiQch/tfAtuiySoMRRCGa2+7DSCF5A=",
   "Source": "APIApp",
   "BasePath": "_content/APIApp",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "APIApp\\wwwroot",
+      "Source": "APIApp",
+      "ContentRoot": "D:\\GIT\\CSHARP_API\\wwwroot\\",
+      "BasePath": "_content/APIApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\GIT\\CSHARP_API\\wwwroot\\main.html",
+      "SourceId": "APIApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GIT\\CSHARP_API\\wwwroot\\",
+      "BasePath": "_content/APIApp",
+      "RelativePath": "main.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main.html"
+    },
+    {
+      "Identity": "D:\\GIT\\CSHARP_API\\wwwroot\\script.js",
+      "SourceId": "APIApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GIT\\CSHARP_API\\wwwroot\\",
+      "BasePath": "_content/APIApp",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "D:\\GIT\\CSHARP_API\\wwwroot\\styles.css",
+      "SourceId": "APIApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GIT\\CSHARP_API\\wwwroot\\",
+      "BasePath": "_content/APIApp",
+      "RelativePath": "styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles.css"
+    }
+  ]
 }
