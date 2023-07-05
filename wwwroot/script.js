@@ -201,13 +201,16 @@ function updatePlayersList(players) {
   const playersUl = document.getElementById("playersUl");
   playersUl.innerHTML = ""; // Effacer la liste des joueurs précédente
 
-  // Parcourir la liste des joueurs et créer les éléments <li> pour chaque joueur
+  // Parcourir la liste des joueurs et ajouter le texte pour chaque joueur avec des sauts de ligne
   players.forEach((player) => {
     if (player.playerName) {
-      const playerLi = document.createElement("li");
-      playerLi.textContent =
-        player.playerName + " => SCORE : " + player.scoreNumber;
-      playersUl.appendChild(playerLi);
+      const playerText = document.createTextNode(
+        player.playerName + " => SCORE : " + player.scoreNumber
+      );
+      playersUl.appendChild(playerText);
+
+      // Ajouter un saut de ligne
+      playersUl.appendChild(document.createElement("br"));
     }
   });
 

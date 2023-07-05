@@ -6,6 +6,11 @@
     margin: 0 auto;
     justify-content: center;
   }
+
+  li
+  {
+    list-style: none;
+  }
   
   .cell {
     display: flex;
@@ -26,4 +31,88 @@
   #games, #players {
     margin-top: 20px;
   }
+  
+  @keyframes blink {
+    0% {
+      border-color: red;
+    }
+    25% {
+      border-color: green;
+    }
+    50% {
+      border-color: blue;
+    }
+    75% {
+      border-color: yellow;
+    }
+    100% {
+      border-color: red;
+    }
+  }
+  
+  .blinking-border {
+    animation: blink 1s infinite;
+    border-style: solid;
+    border-width: 20px;
+    background-color: ghostwhite;
+    text-align: center;
+    margin: 15px;
+    padding: 15px;
+  }
+
+  @keyframes rainbow {
+    0% {
+      color: red;
+    }
+    14% {
+      color: orange;
+    }
+    28% {
+      color: yellow;
+    }
+    42% {
+      color: green;
+    }
+    57% {
+      color: blue;
+    }
+    71% {
+      color: indigo;
+    }
+    85% {
+      color: violet;
+    }
+    100% {
+      color: red;
+    }
+  }
+
+  @keyframes rainbow2 {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  
+  #playersList {
+    animation: rainbow 5s infinite;
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: rainbow2 5s infinite;
+  }
+  
   

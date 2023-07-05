@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\GIT\\CSHARP_API\\wwwroot\\main.css",
+      "PackagePath": "staticwebassets\\main.css"
+    },
+    {
       "Id": "D:\\GIT\\CSHARP_API\\wwwroot\\main.html",
       "PackagePath": "staticwebassets\\main.html"
     },
