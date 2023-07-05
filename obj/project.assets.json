@@ -1729,11 +1729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cluze\\APIApp\\APIApp.csproj",
+      "projectUniqueName": "D:\\GIT\\CSHARP_API\\APIApp.csproj",
       "projectName": "APIApp",
-      "projectPath": "C:\\Users\\cluze\\APIApp\\APIApp.csproj",
+      "projectPath": "D:\\GIT\\CSHARP_API\\APIApp.csproj",
       "packagesPath": "C:\\Users\\cluze\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cluze\\APIApp\\obj\\",
+      "outputPath": "D:\\GIT\\CSHARP_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cluze\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -42,3 +42,7 @@ dotnet tool uninstall --global <NOM>
 
 procédé qui permet de créer des classes qui represente modele de BDD => 'reverse engineering'
 L>installer Microsoft.EntityFrameworkCore.Design
+
+pour crée la base
+dotnet ef migrations add InitialCreate
+dotnet ef database update

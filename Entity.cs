@@ -2,26 +2,32 @@ using System.ComponentModel.DataAnnotations;
 
 namespace APIApp
 {
-    public class Categorie
+    public class Player
     {
         [Key]
-        public int CategoryId { get; set; }
-        public required string CategoryName { get; set; }
-        public required string Description { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; }
     }
 
-    public class Products
+
+    public class Game
     {
         [Key]
-        public required int ProductId { get; set; }
-        public required string ProductName { get; set; } = "";
-        public int SupplierId { get; set; }
-        public required int CategoryId { get; set; }
-        public required string QuantityPerUnit { get; set; }
-        public int UnitPrice { get; set; }
-        public int UnitsInStock { get; set; }
-        public int UnitsOnOrder { get; set; }
-        public int ReorderLevel { get; set; }
-        public int Discontinued { get; set; }
+        public int Id { get; set; }
+        public int Player1id { get; set; }
+        public int Player2id { get; set; }
+        public string BoardState { get; set; }
+        public int IdPlayerWin { get; set; }
     }
+
+    public class Score
+    {
+        [Key]
+        public int Id { get; set; }
+        public int Player { get; set; }
+        public int ScoreNumber { get; set; }
+
+    }
+
 }
